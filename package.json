@@ -1,6 +1,6 @@
 {
   "name": "angular-app-sky-channel-list",
-  "version": "0.0.0",
+  "version": "010.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -34,6 +34,16 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.4.3"
+    "typescript": "~4.4.3",
+    "cordova-android": "^9.1.0",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
