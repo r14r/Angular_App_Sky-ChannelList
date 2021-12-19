@@ -1,81 +1,60 @@
-<!doctype html>
-<html lang="en" class="h-100">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <base href="/">
-
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sky Channel List</title>
+    <!-- needs to be right at the top to prevent Chrome from reloading favicon on every route change -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Sky Assistant</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="theme-color" content="#4e8ef7" />
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   </head>
-
-  <body class="d-flex flex-column h-100">
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sky Channel List</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <!--
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              -->
-              <!--
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-              -->
-            </ul>
-<!--
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <input
-              type="text"
-              class="form-control me-2"
-              id="search-text"
-              aria-describedby="search-text"
-              [(ngModel)]="searchText"
-              placeholder="Enter text to search"
-              autofocus
-            />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
--->
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <main class="flex-shrink-0">
-      <!-- MAIN CONTENT -->
-      <app-root></app-root>
-    </main>
-    
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <span class="text-muted">&copy; 2022 Ralph Göstenmeier</span>
-      </div>
-    </footer>
+  <body>
+    <!--[if lte IE 11]>
+      <p>
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <noscript>
+      <p>
+        This page requires JavaScript to work properly. Please enable JavaScript
+        in your browser.
+      </p>
+    </noscript>
+    <!-- Include Cordova script only when needed -->
+    <script>
+      if (/^app/.test(location.host)) {
+        /**
+         * https://github.com/angular/angular/issues/22509
+         * Prevent cordova.js 5.2.4+ routing bug
+         **/
+        window.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+        };
+        window.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+        };
+        document.addEventListener = function () {
+          EventTarget.prototype.addEventListener.apply(this, arguments);
+        };
+        document.removeEventListener = function () {
+          EventTarget.prototype.removeEventListener.apply(this, arguments);
+        };
+        document.write('<script src="cordova.js"><\/script>');
+      }
+    </script>
+    <app-root></app-root>
   </body>
 </html>

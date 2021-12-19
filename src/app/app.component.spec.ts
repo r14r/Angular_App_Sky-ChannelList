@@ -1,35 +1,42 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { Keyboard } from '@awesome-cordova-plugins/keyboard/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+  let statusBarSpy: jasmine.Spy;
+  let splashScreenSpy: jasmine.Spy;
+  let keyboardSpy: jasmine.Spy;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  beforeEach(
+    waitForAsync(() => {
+      statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
+      splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
+      keyboardSpy = jasmine.createSpyObj('Keyboard', ['hideFormAccessoryBar']);
 
-  it(`should have as title 'angular-app-sky-channelList'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-app-sky-channelList');
-  });
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule, TranslateModule.forRoot()],
+        declarations: [AppComponent],
+        providers: [
+          { provide: Keyboard, useValue: keyboardSpy },
+          { provide: StatusBar, useValue: statusBarSpy },
+          { provide: SplashScreen, useValue: splashScreenSpy },
+        ],
+      }).compileComponents();
+    })
+  );
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-app-sky-channelList app is running!');
-  });
+  it(
+    'should create the app',
+    waitForAsync(() => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const app = fixture.debugElement.componentInstance;
+      expect(app).toBeTruthy();
+    }),
+    30000
+  );
 });

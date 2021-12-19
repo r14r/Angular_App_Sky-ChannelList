@@ -1,3 +1,14 @@
-main > .container {
-    padding: 70px 10px 0px 10px;
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
 }

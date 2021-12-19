@@ -1,12 +1,17 @@
 {
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/node_modules": true
-    },
-    "explorerExclude.backup": null
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/*.spec.ts": true,
+    "**/*.spec.json": true,
+    "cypress": true,
+    "platforms": true,
+    "plugins": true
+  },
+  "explorerExclude.backup": null
 }

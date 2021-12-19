@@ -6,8 +6,7 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/.angular
-/cordova/www
+
 
 # dependencies
 /node_modules
@@ -15,6 +14,15 @@
 # profiling files
 chrome-profiler-events*.json
 
+# Cordova
+/www
+/plugins
+/platforms
+
+# Electron
+/dist-electron
+/dist-packages
+/electron.main.js
 # IDEs and editors
 /.idea
 .project
