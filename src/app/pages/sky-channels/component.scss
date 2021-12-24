@@ -1,3 +1,54 @@
-main > .container {
-  padding: 70px 10px 0px 10px;
+$row-height: 40px;
+$font-size: 16px;
+
+body {
+  font-size: $font-size;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  padding: 0px 10px 0px 10px;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-table {
+  width: 100%;
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-form-field {
+  font-size: $font-size;
+  width: 100%;
+  background-color: white;
+
+  border: 1px solid lightgray;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.mat-header-cell {
+  font-size: $font-size;
+}
+
+.mat-header-row {
+  height: $row-height;
+}
+
+.mat-row {
+  height: $row-height;
+
+  & .mat-cell {
+    border-top: 1px solid transparent;
+  }
+}
+
+.mat-column-channel {
+  text-align: right;
+  justify-content: flex-end;
+  padding-right: 20px;
 }

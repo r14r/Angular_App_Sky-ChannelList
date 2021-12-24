@@ -1,96 +1,79 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="de.viainternet.ios.skyapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Sky Assistant</name>
-  <description>Sky Channel List ad more.</description>
-  <author email="r14r@via-internet.de" href="http://via-internet.de/blog">via INTERNET GmbH</author>
-  <content src="index.html"/>
-  <access origin="*"/>
-  <allow-navigation href="httpsionic://app/*"/>
-  <allow-intent href="http://*/*"/>
-  <allow-intent href="https://*/*"/>
-  <allow-intent href="tel:*"/>
-  <allow-intent href="sms:*"/>
-  <allow-intent href="mailto:*"/>
-  <allow-intent href="geo:*"/>
-
-  <!-- Platforms -->
-  <engine name="ios" spec="^6.2.0"/>
-
-  <!-- iOS specific -->
-  <platform name="ios">
-    <allow-intent href="itms:*"/>
-    <allow-intent href="itms-apps:*"/>
-    <preference name="iosScheme" value="httpsionic" />
-    <preference name="deployment-target" value="11.0"/>
-    <preference name="UIWebViewBounce" value="false"/>
-    <!--
-      Don't store local data in an iCloud backup. Turn this to "cloud" to enable storage
-      to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
-    -->
-    <preference name="BackupWebStorage" value="none"/>
-    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
-    <!-- Set status bar style during splash screen -->
-    <config-file parent="UIStatusBarStyle" platform="ios" target="*-Info.plist" mode="replace">
-      <string>UIStatusBarStyleLightContent</string>
-    </config-file>
-    <!-- Unlock screen rotation on ipad -->
-    <config-file parent="UISupportedInterfaceOrientations~ipad" platform="ios" target="*-Info.plist" mode="replace">
-      <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationPortraitUpsideDown</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-      </array>
-    </config-file>
-    <icon height="57" src="resources/ios/icon/icon.png" width="57"/>
-    <icon height="114" src="resources/ios/icon/icon@2x.png" width="114"/>
-    <icon height="40" src="resources/ios/icon/icon-40.png" width="40"/>
-    <icon height="80" src="resources/ios/icon/icon-40@2x.png" width="80"/>
-    <icon height="120" src="resources/ios/icon/icon-40@3x.png" width="120"/>
-    <icon height="50" src="resources/ios/icon/icon-50.png" width="50"/>
-    <icon height="100" src="resources/ios/icon/icon-50@2x.png" width="100"/>
-    <icon height="60" src="resources/ios/icon/icon-60.png" width="60"/>
-    <icon height="120" src="resources/ios/icon/icon-60@2x.png" width="120"/>
-    <icon height="180" src="resources/ios/icon/icon-60@3x.png" width="180"/>
-    <icon height="72" src="resources/ios/icon/icon-72.png" width="72"/>
-    <icon height="144" src="resources/ios/icon/icon-72@2x.png" width="144"/>
-    <icon height="76" src="resources/ios/icon/icon-76.png" width="76"/>
-    <icon height="152" src="resources/ios/icon/icon-76@2x.png" width="152"/>
-    <icon height="167" src="resources/ios/icon/icon-83.5@2x.png" width="167"/>
-    <icon height="29" src="resources/ios/icon/icon-small.png" width="29"/>
-    <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58"/>
-    <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87"/>
-    <splash src="resources/ios/splash/Default@2x~universal~anyany.png"/>
-  </platform>
-
-  <!-- Permissions -->
-  <feature name="StatusBar">
-    <param name="ios-package" onload="true" value="CDVStatusBar"/>
-  </feature>
-  <feature name="CDVWKWebViewEngine">
-    <param name="ios-package" value="CDVWKWebViewEngine"/>
-  </feature>
-
-  <!-- Common to all platforms -->
-  <preference name="Hostname" value="app" />
-  <preference name="Fullscreen" value="false"/>
-  <preference name="DisallowOverscroll" value="true"/>
-  <preference name="Orientation" value="portrait"/>
-  <preference name="StatusBarOverlaysWebView" value="false"/>
-  <preference name="StatusBarStyle" value="default"/>
-  <preference name="AutoHideSplashScreen" value="false"/>
-  <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
-  <preference name="ShowSplashScreenSpinner" value="false"/>
-  <preference name="SplashMaintainAspectRatio" value="true"/>
-  <preference name="FadeSplashScreenDuration" value="500"/>
-  <preference name="SplashShowOnlyFirstTime" value="true"/>
-
-  <!-- Plugins -->
-  <plugin name="cordova-custom-config" spec="^5.0.2"/>
-  <plugin name="cordova-plugin-device" spec="^2.0.2"/>
-  <plugin name="cordova-plugin-splashscreen" spec="^5.0.2"/>
-  <plugin name="cordova-plugin-statusbar" spec="^2.4.1"/>
-  <plugin name="cordova-plugin-ionic-webview" spec="^4.0.1" />
-  <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
+    <name>sky-assistant</name>
+    <description>Sky Channel List and more.</description>
+    <author email="r14r@via-internet.de" href="http://via-internet.de/blog">via INTERNET GmbH</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="httpsionic://app/*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="iosScheme" value="httpsionic" />
+        <preference name="deployment-target" value="11.0" />
+        <preference name="UIWebViewBounce" value="false" />
+        <preference name="BackupWebStorage" value="none" />
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+        <config-file mode="replace" parent="UIStatusBarStyle" platform="ios" target="*-Info.plist">
+            <string>UIStatusBarStyleLightContent</string>
+        </config-file>
+        <config-file mode="replace" parent="UISupportedInterfaceOrientations~ipad" platform="ios" target="*-Info.plist">
+            <array>
+                <string>UIInterfaceOrientationPortrait</string>
+                <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                <string>UIInterfaceOrientationLandscapeLeft</string>
+                <string>UIInterfaceOrientationLandscapeRight</string>
+            </array>
+        </config-file>
+        <icon height="57" src="resources/ios/icon/icon.png" width="57" />
+        <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
+        <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
+        <icon height="80" src="resources/ios/icon/icon-40@2x.png" width="80" />
+        <icon height="120" src="resources/ios/icon/icon-40@3x.png" width="120" />
+        <icon height="50" src="resources/ios/icon/icon-50.png" width="50" />
+        <icon height="100" src="resources/ios/icon/icon-50@2x.png" width="100" />
+        <icon height="60" src="resources/ios/icon/icon-60.png" width="60" />
+        <icon height="120" src="resources/ios/icon/icon-60@2x.png" width="120" />
+        <icon height="180" src="resources/ios/icon/icon-60@3x.png" width="180" />
+        <icon height="72" src="resources/ios/icon/icon-72.png" width="72" />
+        <icon height="144" src="resources/ios/icon/icon-72@2x.png" width="144" />
+        <icon height="76" src="resources/ios/icon/icon-76.png" width="76" />
+        <icon height="152" src="resources/ios/icon/icon-76@2x.png" width="152" />
+        <icon height="167" src="resources/ios/icon/icon-83.5@2x.png" width="167" />
+        <icon height="29" src="resources/ios/icon/icon-small.png" width="29" />
+        <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58" />
+        <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87" />
+        <splash src="resources/ios/splash/Default@2x~universal~anyany.png" />
+    </platform>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="Hostname" value="app" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="default" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreenDuration" value="500" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <plugin name="cordova-custom-config" spec="^5.0.2" />
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^4.0.1" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
 </widget>

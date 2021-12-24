@@ -5,8 +5,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
-import { SkyChannelsRoutingModule } from './routing.module';
-import { SkyChannelsComponent } from './component';
+import { TableDemosRoutingModule } from './routing.module';
+import { TableDemosComponent } from './component';
 import { HighlightDirective } from '@app/@shared/@directives/highlight.directive';
 import { FilterPipe } from '@app/@shared/@pipes/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,8 +22,8 @@ import { MatSortModule } from '@angular/material/sort';
     FlexLayoutModule,
     MaterialModule,
     MatSortModule,
-    SkyChannelsRoutingModule,
+    TableDemosRoutingModule,
   ],
-  declarations: [SkyChannelsComponent, HighlightDirective, FilterPipe],
+  declarations: [TableDemosComponent, HighlightDirective, FilterPipe],
 })
-export class SkyChannelsModule {}
+export class TableDemosModule {}

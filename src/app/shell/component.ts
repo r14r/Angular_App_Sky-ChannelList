@@ -4,13 +4,22 @@ import { Router } from '@angular/router';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 import { AuthenticationService, CredentialsService } from '@app/auth';
-
+export interface MenuItem {
+  name: string;
+  link: string;
+}
 @Component({
   selector: 'app-shell',
   templateUrl: './component.html',
   styleUrls: ['./component.scss'],
 })
 export class ShellComponent implements OnInit {
+  menu = [
+    { name: 'About', link: '/about' },
+    { name: 'Programme', link: '/channels' },
+    { name: 'Demo: Tabellen', link: '/demo/table' },
+  ];
+
   constructor(
     private router: Router,
     private titleService: Title,
